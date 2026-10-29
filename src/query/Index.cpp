@@ -168,7 +168,7 @@ Index::Index(mesh::Mesh &mesh)
 // Required for the pimpl idiom to work with std::unique_ptr
 Index::~Index() = default;
 
-VertexMatch Index::getClosestVertex(const mesh::Vertex::RawCoords &sourceCoord)
+VertexMatch Index::getClosestVertex(mesh::Vertex::RawCoords sourceCoord)
 {
   PRECICE_TRACE();
 
@@ -186,7 +186,7 @@ VertexMatch Index::getClosestVertex(const Eigen::VectorXd &sourceCoord)
   return getClosestVertex(eigenToRaw(sourceCoord));
 }
 
-std::vector<VertexID> Index::getClosestVertices(const mesh::Vertex::RawCoords &sourceCoord, int n)
+std::vector<VertexID> Index::getClosestVertices(mesh::Vertex::RawCoords sourceCoord, int n)
 {
   PRECICE_TRACE();
   PRECICE_ASSERT(!(_mesh->empty()), _mesh->getName());
